@@ -21,6 +21,5 @@ dependencies {
 
 test {
     useTestNG() {
-        suiteXmlFiles << new File("src/test/resources/sample.xml")
     }
 }
