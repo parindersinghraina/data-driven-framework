@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.parinder.data.driven.tests.LoginTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-10-12T23:07:54" hostname="DESKTOP-BS2JD8C" time="52.468">
+<testsuite name="com.parinder.data.driven.tests.LoginTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-10-19T00:06:07" hostname="DESKTOP-BS2JD8C" time="27.75">
   <properties/>
-  <testcase name="testLogin" classname="com.parinder.data.driven.tests.LoginTest" time="26.431"/>
-  <testcase name="testLoginWithExcelData" classname="com.parinder.data.driven.tests.LoginTest" time="26.035"/>
+  <testcase name="testLoginWithExcelData" classname="com.parinder.data.driven.tests.LoginTest" time="27.75"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 85.0.4183.87 (cd6713ebf92fa1cacc0f1a598df280093af0c5d7-refs/branch-heads/4183@{#1689}) on port 34807
+  <system-err><![CDATA[Starting ChromeDriver 85.0.4183.87 (cd6713ebf92fa1cacc0f1a598df280093af0c5d7-refs/branch-heads/4183@{#1689}) on port 25655
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-Oct 12, 2020 7:07:58 PM org.openqa.selenium.remote.ProtocolHandshake createSession
-INFO: Detected dialect: W3C
-Starting ChromeDriver 85.0.4183.87 (cd6713ebf92fa1cacc0f1a598df280093af0c5d7-refs/branch-heads/4183@{#1689}) on port 38537
-Only local connections are allowed.
-Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
-ChromeDriver was started successfully.
-Oct 12, 2020 7:08:24 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+[1603065970.410][WARNING]: This version of ChromeDriver has not been tested with Chrome version 86.
+Oct 18, 2020 8:06:12 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>
