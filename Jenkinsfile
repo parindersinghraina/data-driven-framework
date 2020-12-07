@@ -1,7 +1,7 @@
 version: "2"
 services:
   hub:
-    image: selenium/hub:3.141.59
+    image: selenium/hub:latest
     expose:
       - "4444"
     logging:
