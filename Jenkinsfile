@@ -1,7 +1,7 @@
 version: "2"
 services:
   hub:
-    image: selenium/hub:latest
+    image: selenium/hub:3.141.59
     expose:
       - "4444"
     logging:
@@ -25,6 +25,8 @@ services:
   test_runner:
     image: openjdk:8-jdk
     volumes:
+      - /var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
       - .:/tests
     working_dir: /tests
     environment:
