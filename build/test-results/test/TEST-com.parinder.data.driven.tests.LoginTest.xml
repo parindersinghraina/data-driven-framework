@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.parinder.data.driven.tests.LoginTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2020-12-10T22:54:33" hostname="d40baf2094a0" time="0.055">
+<testsuite name="com.parinder.data.driven.tests.LoginTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2020-12-10T23:29:57" hostname="285e466bf524" time="0.076">
   <properties/>
-  <testcase name="testLogin" classname="com.parinder.data.driven.tests.LoginTest" time="0.05">
+  <testcase name="testLogin" classname="com.parinder.data.driven.tests.LoginTest" time="0.07">
     <failure message="java.lang.IllegalStateException: The driver executable does not exist: /tests/D:/parindersinghraina/DriversJars/chromedriver.exe" type="java.lang.IllegalStateException">java.lang.IllegalStateException: The driver executable does not exist: /tests/D:/parindersinghraina/DriversJars/chromedriver.exe
 	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
 	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
@@ -66,7 +66,7 @@
 	at java.lang.Thread.run(Thread.java:748)
 </failure>
   </testcase>
-  <testcase name="testLoginWithExcelData" classname="com.parinder.data.driven.tests.LoginTest" time="0.003">
+  <testcase name="testLoginWithExcelData" classname="com.parinder.data.driven.tests.LoginTest" time="0.004">
     <failure message="java.lang.IllegalStateException: The driver executable does not exist: /tests/D:/parindersinghraina/DriversJars/chromedriver.exe" type="java.lang.IllegalStateException">java.lang.IllegalStateException: The driver executable does not exist: /tests/D:/parindersinghraina/DriversJars/chromedriver.exe
 	at com.google.common.base.Preconditions.checkState(Preconditions.java:585)
 	at org.openqa.selenium.remote.service.DriverService.checkExecutable(DriverService.java:146)
