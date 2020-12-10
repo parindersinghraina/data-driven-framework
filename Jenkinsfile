@@ -1,39 +1,46 @@
-version: "2"
+version: "3"
 services:
+
   hub:
-    image: selenium/hub:3.141.59
-    expose:
-      - "4444"
-    logging:
-      driver: none
+    image: selenium/hub
+    ports:
+      - "4444:4444"
+
     environment:
-      GRID_MAX_SESSION: 5
+      GRID_MAX_SESSION: 16
+      GRID_BROWSER_TIMEOUT: 3000
+      GRID_TIMEOUT: 3000
 
   chrome:
-    image: selenium/node-chrome:3.141.59
-    volumes:
-      - /dev/shm:/dev/shm
-    environment:
-      HUB_HOST: hub
-      NODE_MAX_INSTANCES: 5
-      NODE_MAX_SESSION: 5
-    logging:
-      driver: none
+    image: selenium/node-chrome
+    container_name: web-automation_chrome
     depends_on:
       - hub
-
-  test_runner:
-    image: openjdk:8-jdk
-    volumes:
-      - /var/jenkins_home
-      - /var/run/docker.sock:/var/run/docker.sock
-      - .:/tests
-    working_dir: /tests
     environment:
-      - AUTOMATED_TEST_ENV_CONFIG=${AUTOMATED_TEST_ENV_CONFIG}
-      - AUTOMATED_TEST_WD_CONFIG=docker-compose
-      - AUTOMATED_TEST_SUITE=${AUTOMATED_TEST_SUITE}
-    command: bash -c "./gradlew clean build -DAUTOMATED_TEST_SUITE=$${AUTOMATED_TEST_SUITE}; chmod -R 777 build"
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 4
+      NODE_MAX_INSTANCES: 4
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "9001:5900"
+    links:
+      - hub
+
+  firefox:
+    image: selenium/node-firefox
+    container_name: web-automation_firefox
     depends_on:
-      - chrome
+      - hub
+    environment:
+      HUB_PORT_4444_TCP_ADDR: hub
+      HUB_PORT_4444_TCP_PORT: 4444
+      NODE_MAX_SESSION: 2
+      NODE_MAX_INSTANCES: 2
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - "9002:5900"
+    links:
       - hub
