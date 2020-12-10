@@ -25,6 +25,8 @@ services:
   test_runner:
     image: openjdk:8-jdk
     volumes:
+      - /var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
       - .:/tests
     working_dir: /tests
     environment:
