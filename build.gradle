@@ -3,10 +3,8 @@ plugins {
     id "eclipse"
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
 repositories {
+    jcenter()
     mavenCentral()
 }
 
@@ -23,7 +21,11 @@ dependencies {
 test {
     useTestNG() {
         useDefaultListeners = false // report generation delegated to TestNG library
-        suites 'src/test/resources/suites/sample.xml'
-        // defaults to 'all' suite
     }
+
+    testLogging {
+        events "PASSED", "FAILED", "SKIPPED" //we want display the following test events
+    }
+
+    reports.html.enabled = false // disabled gradle reports so they do not overwrite the testNG ones
 }
