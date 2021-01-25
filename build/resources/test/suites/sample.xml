@@ -1,7 +1,0 @@
-<suite name="sample" verbose="1">
-    <test name="all-tests">
-        <packages>
-            <package name="com.parinder.data.driven.tests.*"/>
-        </packages>
-    </test>
-</suite>
