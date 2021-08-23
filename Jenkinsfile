@@ -33,7 +33,6 @@ pipeline {
     }
     post {
         always {
-            container('test-runner'){
                 echo "Changing permissions on build folder, writing properties file, and generating Allure report"
                 script {
                     sh 'chmod -R 777 build'
@@ -43,7 +42,6 @@ pipeline {
                     writeFile(file: "build/allure-results/environment.properties", text: props, encoding: "UTF-8")
                     allure results: [[path: 'build/allure-results']]
                 }
-              }
         }
     }
 }
