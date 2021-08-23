@@ -21,8 +21,8 @@ public class LoginTest extends BaseTest {
         setup();
         LoginPage loginPage = new LoginPage(this.driver, this.config);
         loginPage.get();
-        loginPage.enterUserName("xxxx");
-        loginPage.enterPassword("xxxxxxxx");
+        loginPage.enterUserName(this.config.getSecret("TEST_USERNAME"));
+        loginPage.enterPassword(this.config.getSecret("TEST_PASSWORD"));
     }
 
     @Test(description = "Verify that the user login to linkedin with excel data")
