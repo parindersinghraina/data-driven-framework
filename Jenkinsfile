@@ -1,6 +1,5 @@
 pipeline {
     agent none
-    }
     parameters {
         choice(
           choices: ['test', 'live'],
