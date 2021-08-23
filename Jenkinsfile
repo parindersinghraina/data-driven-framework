@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     parameters {
         choice(
           choices: ['test', 'live'],
