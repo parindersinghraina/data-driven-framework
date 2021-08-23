@@ -1,0 +1,22 @@
+# project files
+/.gradle/
+/.settings/
+/.metadata/
+/.vscode/
+.classpath
+.project
+/.idea/
+
+# build files
+/build/
+/bin/
+
+# output files
+/.allure/
+/allure-report/
+/allure-results/
+/target/
+/test-output/
+
+# Mac recovery files
+.DS_Store
