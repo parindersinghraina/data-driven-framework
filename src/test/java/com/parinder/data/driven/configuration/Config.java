@@ -36,4 +36,8 @@ public class Config {
     public String getProperty(String name) {
         return configProperties.getProperty(name);
     }
+
+    public String getSecret(String name) {
+        return System.getenv(name);
+    }
 }

@@ -21,6 +21,7 @@ dependencies {
 test {
     useTestNG() {
         useDefaultListeners = false // report generation delegated to TestNG library
+        suites 'src/test/resources/suites/sample.xml'
     }
 
     testLogging {

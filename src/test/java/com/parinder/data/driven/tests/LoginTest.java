@@ -23,7 +23,6 @@ public class LoginTest extends BaseTest {
         loginPage.get();
         loginPage.enterUserName("xxxx");
         loginPage.enterPassword("xxxxxxxx");
-        loginPage.implicitlyWait(20);
     }
 
     @Test(description = "Verify that the user login to linkedin with excel data")
@@ -38,6 +37,5 @@ public class LoginTest extends BaseTest {
         loginPage.get();
         loginPage.enterUserName(row.getCell(1).toString());
         loginPage.enterPassword(row.getCell(2).toString());
-        loginPage.implicitlyWait(20);
     }
 }

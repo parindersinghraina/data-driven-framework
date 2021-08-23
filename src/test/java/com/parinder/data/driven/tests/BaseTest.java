@@ -3,7 +3,6 @@ package com.parinder.data.driven.tests;
 import com.parinder.data.driven.configuration.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 import java.io.IOException;
@@ -26,8 +25,8 @@ public class BaseTest {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void teardown() throws IOException {
-        this.getDriver().quit();
+    public void teardown() {
+        this.driver.quit();
     }
 
     protected WebDriver getDriver() {
