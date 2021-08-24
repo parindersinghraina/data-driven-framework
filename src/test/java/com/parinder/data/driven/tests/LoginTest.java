@@ -5,6 +5,9 @@ import com.parinder.data.driven.utils.excelutils.ExcelUtil;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
+
 public class LoginTest extends BaseTest {
 
     @BeforeTest
@@ -13,7 +16,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(description = "Verify that the user login to linkedin ")
-    public void testLogin()  {
+    public void testLogin() throws IOException {
         setup();
         LoginPage loginPage = new LoginPage(this.driver, this.config);
         loginPage.get();
@@ -22,12 +25,12 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(description = "Verify that the user login to linkedin with excel data")
-    public void testLoginWithExcelData()  {
+    public void testLoginWithExcelData() throws IOException {
         this.loginToLinkedin(ExcelUtil.getRowData(1));
     }
 
 
-    public void loginToLinkedin(XSSFRow row)  {
+    public void loginToLinkedin(XSSFRow row) throws IOException {
         setup();
         LoginPage loginPage = new LoginPage(this.driver, this.config);
         loginPage.get();
