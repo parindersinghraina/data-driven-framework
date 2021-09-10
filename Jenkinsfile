@@ -18,7 +18,7 @@ pipeline {
                     props += "\nBUILD:       ${env.BUILD_NUMBER}"
                     props += "\nSUITE:       ${env.AUTOMATED_TEST_SUITE}"
                     echo props
-                    sh "./gradlew clean build"
+                    sh "/usr/local/bin/docker-compose up --no-color --abort-on-container-exit"
                 }
             }
         }
@@ -33,6 +33,7 @@ pipeline {
                     props += "\nSUITE=${env.AUTOMATED_TEST_SUITE}"
                     writeFile(file: "build/allure-results/environment.properties", text: props, encoding: "UTF-8")
                     allure results: [[path: 'build/allure-results']]
+                    sh '/usr/local/bin/docker-compose down'
                 }
         }
     }
