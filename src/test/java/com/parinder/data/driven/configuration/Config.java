@@ -20,6 +20,10 @@ public class Config {
         String targetEnvironmentConfigFIlePath = "configuration/environment-config.properties";
         this.loadPropertiesFile(targetEnvironmentConfigFIlePath);
 
+        // Load target webdriver config file based on environment variable
+        String targetWebDriverConfigFIlePath = "configuration/webdriver-config.properties";
+        this.loadPropertiesFile(targetWebDriverConfigFIlePath);
+
         // Load target environment config file based on environment variable
         String targetTestDataFilePath = "test-data-sheet.xlsx";
         this.loadPropertiesFile(targetTestDataFilePath);

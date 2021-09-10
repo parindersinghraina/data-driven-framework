@@ -10,6 +10,20 @@ pipeline {
         SECRET_ENVIRONMENT = "${params.SECRET_ENVIRONMENT}"
     }
     stages {
+        stage('Get Secrets') {
+            node ("get secret node") {
+                def secrets = [
+                    [path: 'secret/test', engineVersion: 1, secretValues: [
+                    [envVar: 'TEST_USERNAME', vaultKey: 'TEST_USERNAME'],
+                    [envVar: 'TEST_PASSWORD', vaultKey: 'TEST_PASSWORD']]]
+                ]
+                // inside this block your credentials will be available as env variables
+                withVault([configuration: configuration, vaultSecrets: secrets]) {
+                    sh 'echo TEST_USERNAME'
+                    sh 'echo TEST_PASSWORD'
+                }
+            }
+        }
         stage('test') {
             steps {
                 script {
