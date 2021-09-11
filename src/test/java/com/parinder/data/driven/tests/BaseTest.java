@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 
@@ -43,13 +44,13 @@ public class BaseTest {
                 }
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.setBinary("/usr/local/bin/");
+                DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
                 chromeOptions.addArguments("--headless");
                 chromeOptions.addArguments("--no-sandbox");
                 chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.setProxy(null);
                 try {
-                    newWebDriver = new RemoteWebDriver(new URL(hostUrl), chromeOptions);
+                    newWebDriver = new RemoteWebDriver(new URL(hostUrl), desiredCapabilities);
                     break;
                 } catch (MalformedURLException e) {
                     throw new IllegalArgumentException("Invalid webdriver host URL: " + hostUrl);
