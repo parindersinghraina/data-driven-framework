@@ -3,7 +3,6 @@ package com.parinder.data.driven.tests;
 import com.parinder.data.driven.configuration.Config;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -28,8 +27,8 @@ public class BaseTest {
 
     private void setupDriver() {
         RemoteWebDriver newWebDriver;
-        String hostUrl = config.getProperty("webdriver.host.url");
-        String browser = config.getProperty("webdriver.browser");
+        String hostUrl = this.config.getProperty("webdriver.host.url");
+        String browser = this.config.getProperty("webdriver.browser");
 
         switch (browser) {
             case "firefox":
@@ -44,6 +43,10 @@ public class BaseTest {
                 }
             case "chrome":
                 ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.setBinary("/usr/local/bin/");
+                chromeOptions.addArguments("--headless");
+                chromeOptions.addArguments("--no-sandbox");
+                chromeOptions.addArguments("--disable-dev-shm-usage");
                 chromeOptions.setProxy(null);
                 try {
                     newWebDriver = new RemoteWebDriver(new URL(hostUrl), chromeOptions);

@@ -28,8 +28,6 @@ services:
       - .:/tests
     working_dir: /tests
     environment:
-      - AUTOMATED_TEST_ENV_CONFIG=${AUTOMATED_TEST_ENV_CONFIG}
-      - AUTOMATED_TEST_WD_CONFIG=docker-compose
       - AUTOMATED_TEST_SUITE=${AUTOMATED_TEST_SUITE}
     command: bash -c "./gradlew clean build; chmod -R 777 build"
     depends_on:
